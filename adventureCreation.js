@@ -1,6 +1,10 @@
 "use strict";
 exports.__esModule = true;
 var characterCreation_1 = require("./characterCreation");
+var fs = require("fs");
+var path = require("path");
+var desktopPath = require('os').homedir() + '/Desktop';
+var filename = 'adventure.txt';
 var ItemType;
 (function (ItemType) {
     ItemType["WEAPON"] = "weapon";
@@ -180,8 +184,7 @@ var AdventureGenerator = /** @class */ (function () {
         return items;
     };
     AdventureGenerator.prototype.generateMonsters = function () {
-        var numMonsters = Math.floor(Math.random() * (this.maxMonstersPerRoom - this.minMonstersPerRoom + 1) +
-            this.minMonstersPerRoom);
+        var numMonsters = Math.floor(Math.random() * (this.maxMonstersPerRoom - this.minMonstersPerRoom + 1) + this.minMonstersPerRoom);
         var monsters = [];
         for (var i = 0; i < numMonsters; i++) {
             var name_2 = this.monsterNames[Math.floor(Math.random() * this.monsterNames.length)];
@@ -204,3 +207,6 @@ var adventure = generator.generateAdventure();
 var adventurers = (0, characterCreation_1.generateCharacters)(2);
 console.log(JSON.stringify(adventure, null, 2));
 console.log(adventurers);
+var adventureString = JSON.stringify(adventure, null, 2);
+fs.writeFileSync(path.join(desktopPath, filename), adventureString);
+console.log("Adventure saved to ".concat(path.join(desktopPath, filename)));

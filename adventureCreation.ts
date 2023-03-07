@@ -1,4 +1,9 @@
 import {generateCharacters} from "./characterCreation";
+import * as fs from 'fs';
+import * as path from 'path';
+
+const desktopPath = require('os').homedir() + '/Desktop';
+const filename = 'adventure.txt';
 
 enum ItemType {
   WEAPON = "weapon",
@@ -215,8 +220,7 @@ class AdventureGenerator {
 
   private generateMonsters(): Monster[] {
     const numMonsters = Math.floor(
-      Math.random() * (this.maxMonstersPerRoom - this.minMonstersPerRoom + 1) +
-        this.minMonstersPerRoom
+      Math.random() * (this.maxMonstersPerRoom - this.minMonstersPerRoom + 1) + this.minMonstersPerRoom
     );
 
     const monsters: Monster[] = [];
@@ -255,3 +259,7 @@ const adventurers = generateCharacters(2);
 console.log(JSON.stringify(adventure, null, 2));
 console.log(adventurers);
 
+const adventureString = JSON.stringify(adventure, null, 2);
+fs.writeFileSync(path.join(desktopPath, filename), adventureString);
+
+console.log(`Adventure saved to ${path.join(desktopPath, filename)}`);
