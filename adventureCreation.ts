@@ -25,55 +25,144 @@ type Room = {
 };
 
 class AdventureGenerator {
-  private readonly roomTypes = ["cave", "dungeon", "mansion", "shack", "lair", "mine", "tomb"];
+  private readonly roomTypes = [
+  "cave",
+  "dungeon",
+  "mansion",
+  "shack",
+  "lair",
+  "mine",
+  "tomb",
+  "castle",
+  "crypt",
+  "temple",
+  "laboratory",
+  "library", 
+  "armory",
+  "throne room",
+  "ballroom",
+  "courtyard",
+  "guard room",
+  "kitchen",
+  "dining hall",
+  "workshop",
+  "catacombs",
+  "sewer",
+  "prison cell",
+  "study",
+  "observatory",
+  "gallery",
+  "sanctuary"
+  ];
   private readonly roomSizes = ["small", "medium", "large", "huge"];
   private readonly adjectives = [
-    "dark",
-    "creepy",
-    "spooky",
-    "haunted",
-    "forgotten",
-    "abandoned",
-    "dusty",
-    "foggy",
+  "dark",
+  "creepy",
+  "spooky",
+  "haunted",
+  "forgotten",
+  "abandoned",
+  "dusty",
+  "foggy",
+  "eerie",
+  "unsettling",
+  "ominous",
+  "macabre",
+  "grotesque",
+  "chilling",
+  "unnerving",
+  "foreboding",
+  "morbid",
+  "ghostly",
+  "spectral",
+  "shadowy",
+  "sinister",
+  "malevolent",
+  "cursed",
+  "desolate",
+  "dreary",
+  "somber",
+  "terrifying",
+  "gothic",
+  "haunted"
   ];
   private readonly itemNames = [
-    "Sword",
-    "Axe",
-    "Mace",
-    "Bow",
-    "Dagger",
-    "Shield",
-    "Helmet",
-    "Breastplate",
-    "Gauntlets",
-    "Boots",
-    "Ring",
-    "Amulet",
-    "Potion",
-    "Scroll",
-    "Bones",
+  "Sword",
+  "Axe",
+  "Mace",
+  "Bow",
+  "Dagger",
+  "Shield",
+  "Helmet",
+  "Breastplate",
+  "Gauntlets",
+  "Boots",
+  "Ring",
+  "Amulet",
+  "Potion",
+  "Scroll",
+  "Bones",
+  "Staff",
+  "Wand",
+  "Rod",
+  "Spear",
+  "Halberd",
+  "Crossbow",
+  "Quiver",
+  "Cloak",
+  "Robe",
+  "Belt",
+  "Bracers",
+  "Necklace",
+  "Earrings",
+  "Gloves",
+  "Iron Flask"
   ];
   private readonly monsterNames = [
-    "Goblin",
-    "Orc",
-    "Troll",
-    "Giant Spider",
-    "Skeleton",
-    "Zombie",
-    "Ghoul",
-    "Vampire",
-    "Werewolf",
-    "Dragon",
-    "Rat",
-    "Rogue",
+  "Goblin",
+  "Orc",
+  "Troll",
+  "Giant Spider",
+  "Skeleton",
+  "Zombie",
+  "Ghoul",
+  "Vampire",
+  "Werewolf",
+  "Dragon",
+  "Rat",
+  "Beholder",
+  "Chimera",
+  "Demon",
+  "Devil",
+  "Djinn",
+  "Elemental",
+  "Gargoyle",
+  "Ghost",
+  "Gorgon",
+  "Harpy",
+  "Hydra",
+  "Kraken",
+  "Lich",
+  "Medusa",
+  "Manticore",
+  "Mimic",
+  "Minotaur",
+  "Naga",
+  "Ogre",
+  "Pixie",
+  "Specter",
+  "Sphinx",
+  "Treant",
+  "Unicorn",
+  "Wight",
+  "Wraith"
   ];
   private readonly minRoomsPerAdventure = 2;
-  private readonly maxRoomsPerAdventure = 2;
+  private readonly maxRoomsPerAdventure = 8;
   private readonly minItemsPerRoom = 0;
   private readonly maxItemsPerRoom = 2;
   private readonly minMonstersPerRoom = 0;
-  private readonly maxMonstersPerRoom = 2;
+  private readonly maxMonstersPerRoom = 3;
   private readonly minItemValue = 0;
   private readonly maxItemValue = 100;
   private readonly minStrength = 1;
@@ -161,7 +250,8 @@ class AdventureGenerator {
 
 const generator = new AdventureGenerator();
 const adventure = generator.generateAdventure();
-const adventurers = generateCharacters(3);
+const adventurers = generateCharacters(2);
 
 console.log(JSON.stringify(adventure, null, 2));
 console.log(adventurers);
+

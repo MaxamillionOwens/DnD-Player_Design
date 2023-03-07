@@ -9,7 +9,35 @@ var ItemType;
 })(ItemType || (ItemType = {}));
 var AdventureGenerator = /** @class */ (function () {
     function AdventureGenerator() {
-        this.roomTypes = ["cave", "dungeon", "mansion", "shack", "lair", "mine", "tomb"];
+        this.roomTypes = [
+            "cave",
+            "dungeon",
+            "mansion",
+            "shack",
+            "lair",
+            "mine",
+            "tomb",
+            "castle",
+            "crypt",
+            "temple",
+            "laboratory",
+            "library",
+            "armory",
+            "throne room",
+            "ballroom",
+            "courtyard",
+            "guard room",
+            "kitchen",
+            "dining hall",
+            "workshop",
+            "catacombs",
+            "sewer",
+            "prison cell",
+            "study",
+            "observatory",
+            "gallery",
+            "sanctuary"
+        ];
         this.roomSizes = ["small", "medium", "large", "huge"];
         this.adjectives = [
             "dark",
@@ -20,6 +48,27 @@ var AdventureGenerator = /** @class */ (function () {
             "abandoned",
             "dusty",
             "foggy",
+            "eerie",
+            "unsettling",
+            "ominous",
+            "macabre",
+            "grotesque",
+            "chilling",
+            "unnerving",
+            "foreboding",
+            "morbid",
+            "ghostly",
+            "spectral",
+            "shadowy",
+            "sinister",
+            "malevolent",
+            "cursed",
+            "desolate",
+            "dreary",
+            "somber",
+            "terrifying",
+            "gothic",
+            "haunted"
         ];
         this.itemNames = [
             "Sword",
@@ -37,6 +86,21 @@ var AdventureGenerator = /** @class */ (function () {
             "Potion",
             "Scroll",
             "Bones",
+            "Staff",
+            "Wand",
+            "Rod",
+            "Spear",
+            "Halberd",
+            "Crossbow",
+            "Quiver",
+            "Cloak",
+            "Robe",
+            "Belt",
+            "Bracers",
+            "Necklace",
+            "Earrings",
+            "Gloves",
+            "Iron Flask"
         ];
         this.monsterNames = [
             "Goblin",
@@ -50,14 +114,39 @@ var AdventureGenerator = /** @class */ (function () {
             "Werewolf",
             "Dragon",
             "Rat",
-            "Rogue",
+            "Beholder",
+            "Chimera",
+            "Demon",
+            "Devil",
+            "Djinn",
+            "Elemental",
+            "Gargoyle",
+            "Ghost",
+            "Gorgon",
+            "Harpy",
+            "Hydra",
+            "Kraken",
+            "Lich",
+            "Medusa",
+            "Manticore",
+            "Mimic",
+            "Minotaur",
+            "Naga",
+            "Ogre",
+            "Pixie",
+            "Specter",
+            "Sphinx",
+            "Treant",
+            "Unicorn",
+            "Wight",
+            "Wraith"
         ];
         this.minRoomsPerAdventure = 2;
-        this.maxRoomsPerAdventure = 2;
+        this.maxRoomsPerAdventure = 8;
         this.minItemsPerRoom = 0;
         this.maxItemsPerRoom = 2;
         this.minMonstersPerRoom = 0;
-        this.maxMonstersPerRoom = 2;
+        this.maxMonstersPerRoom = 3;
         this.minItemValue = 0;
         this.maxItemValue = 100;
         this.minStrength = 1;
@@ -112,6 +201,6 @@ var AdventureGenerator = /** @class */ (function () {
 }());
 var generator = new AdventureGenerator();
 var adventure = generator.generateAdventure();
-var adventurers = (0, characterCreation_1.generateCharacters)(3);
+var adventurers = (0, characterCreation_1.generateCharacters)(2);
 console.log(JSON.stringify(adventure, null, 2));
 console.log(adventurers);

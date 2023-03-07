@@ -52,7 +52,11 @@ const featsByRace = {
   [Race.Halfling]: ["Lucky", "Brave", "Halfling Nimbleness"],
   [Race.HalfElf]: ["Skill Versatility", "Fey Ancestry", "Extra Language"],
   [Race.HalfOrc]: ["Menacing", "Relentless Endurance", "Savage Attacks"],
+  [Race.Dragonborn]: ["Draconic Ancestry", "Breath Weapon", "Damage Resistance"],
+  [Race.Gnome]: ["Gnome Cunning", "Artificer's Lore", "Tinker"],
+  [Race.Tiefling]: ["Infernal Legacy", "Hellish Resistance", "Darkness"],
 };
+
 
 function getRandomInt(min: number, max: number) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
