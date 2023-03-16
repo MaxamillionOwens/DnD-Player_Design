@@ -1,7 +1,5 @@
 "use strict";
 var _a;
-exports.__esModule = true;
-exports.generateCharacters = void 0;
 var characterName_1 = require("./characterName");
 var Race;
 (function (Race) {
