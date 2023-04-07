@@ -1,4 +1,5 @@
 "use strict";
+exports.__esModule = true;
 var characterCreation_1 = require("./characterCreation");
 var fs = require("fs");
 var path = require("path");

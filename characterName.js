@@ -115,13 +115,10 @@ var nameData = [
     },
 ];
 function generateName(race, gender) {
-    var entries = nameData.filter(function (e) { return e.race === race && e.gender === gender; });
-    var entry = entries[Math.floor(Math.random() * entries.length)];
-    var name = entry.nameParts.map(function (part) {
-        return part[Math.floor(Math.random() * part.length)];
-    }).join('');
-    var maxLength = 8;
-    var truncatedName = name.substring(0, maxLength).toLowerCase().replace(/\b\w/g, function (c) { return c.toUpperCase(); });
-    return truncatedName;
+    var nameDataFiltered = nameData.filter(function (data) { return data.race === race && data.gender === gender; });
+    var nameParts = nameDataFiltered[0].nameParts;
+    var randomIndex = Math.floor(Math.random() * nameParts.length);
+    var randomName = nameParts[randomIndex];
+    return randomName;
 }
 exports.generateName = generateName;

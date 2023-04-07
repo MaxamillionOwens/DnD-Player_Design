@@ -119,14 +119,14 @@ const nameData: NameData[] = [
   },
 ];
 
-export function generateName(race: Race, gender: Gender): string {
-  const entries = nameData.filter(e => e.race === race && e.gender === gender);
-  const entry = entries[Math.floor(Math.random() * entries.length)];
-  const name = entry.nameParts.map(part => {
-    return part[Math.floor(Math.random() * part.length)];
-  }).join('');
-  const maxLength = 8;
-  const truncatedName = name.substring(0, maxLength).toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
-return truncatedName;
 
+
+export function generateName(race: Race, gender: Gender): string {
+  const nameDataFiltered = nameData.filter(
+    (data) => data.race === race && data.gender === gender
+  );
+  const nameParts = nameDataFiltered[0].nameParts;
+  const randomIndex = Math.floor(Math.random() * nameParts.length);
+  const randomName = nameParts[randomIndex];
+  return randomName;
 }
