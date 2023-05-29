@@ -122,9 +122,7 @@ const nameData: NameData[] = [
 
 
 export function generateName(race: Race, gender: Gender): string {
-  const nameDataFiltered = nameData.filter(
-    (data) => data.race === race && data.gender === gender
-  );
+  const nameDataFiltered = nameData.filter( (data) => data.race === race && data.gender === gender );
   const nameParts = nameDataFiltered[0].nameParts;
   const randomIndex = Math.floor(Math.random() * nameParts.length);
   const randomName = nameParts[randomIndex];
